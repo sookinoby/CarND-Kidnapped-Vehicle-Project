@@ -10,6 +10,8 @@
 #define PARTICLE_FILTER_H_
 
 #include "helper_functions.h"
+#include <random>
+#include <algorithm>
 
 struct Particle {
 
@@ -34,6 +36,7 @@ class ParticleFilter {
 	
 	// Vector of weights of all particles
 	std::vector<double> weights;
+    std::default_random_engine gen;
 	
 public:
 	
@@ -104,6 +107,8 @@ public:
 	/**
 	 * initialized Returns whether particle filter is initialized yet or not.
 	 */
+
+    void cvrtUpdateOnParticle(std::vector<Particle> &Particles,double delta_t,double std_pos[], double velocity, double yaw_rate);
 	const bool initialized() const {
 		return is_initialized;
 	}

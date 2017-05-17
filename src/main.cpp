@@ -108,6 +108,7 @@ int main() {
 			obs = observations[j];
 			obs.x = obs.x + n_x;
 			obs.y = obs.y + n_y;
+            obs.id = j;
 			noisy_observations.push_back(obs);
 		}
 
